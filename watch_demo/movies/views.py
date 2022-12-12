@@ -33,11 +33,6 @@ class MovieAddView(LoginRequiredMixin, CreateView):
         return context
 
 
-# class MovieListView(ListView):
-#     template_name = 'movies/movie-suggestions.html'
-#     model = Movie
-
-
 class MovieListView(LoginRequiredMixin, ListView):
     model = Movie
     template_name = 'movies/movie-suggestions.html'
@@ -59,10 +54,6 @@ class MovieDetailView(LoginRequiredMixin, DetailView):
     template_name = 'movies/details-movie.html'
     model = Movie
     context_object_name = 'movie'
-    # .prefetch_related('photolike_set')
-    # cocktails = object.
-    # user_cocktails = UserModel.cocktail_set.all()
-    # user = request.user
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

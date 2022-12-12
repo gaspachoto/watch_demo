@@ -62,7 +62,6 @@ class MoviesSearchListView(LoginRequiredMixin, ListView):
         if pattern:
             queryset = queryset.filter(movie_genre__icontains=pattern)
             print(queryset)
-            # queryset2 = queryset.filter(main_ingredient__icontains=pattern)
             # queryset = queryset1 | queryset2
         return queryset
 
