@@ -5,7 +5,6 @@
     <a href="{% url 'index' %}"><h1>Watch This</h1></a>
 
     <ul class="menu">
-{#        <li><a href="#">Gallery</a></li>#}
         {% if request.user.is_authenticated %}
         <li><a href="{% url 'movie add' %}">Suggest movie</a></li>
         <li><a href="{% url 'actor add' %}">Add actor</a></li>

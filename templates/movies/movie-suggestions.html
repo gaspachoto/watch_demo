@@ -22,7 +22,6 @@
 
                 <article class="gallery-container">
                     {% for movie in movies %}
-                    <!--If there are art publications in the database, show each of them-->
                     <article class="card-info">
                         <div class="card-info-image">
                             <img src="{{ movie.movie_poster.url }}" alt="">
@@ -46,7 +45,6 @@
                     </article>
                 {% endfor %}
                 </article>
-
             {% endif %}
         <div class="pagination">
             <span class="step-links">
@@ -63,7 +61,6 @@
         {% endif %}
     </span>
         </div>
-            <!--</section>-->
     </div>
 
 
