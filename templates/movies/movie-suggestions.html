@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load placeholders %}
+{% block page_content %}
+
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "error-box" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--<div class="error-box">
+            <p>Error</p>
+        </div>-->
+            <!--<section id="gallery">-->
+                <h1>Movie suggestions</h1>
+            {% if not movies %}
+                <!--If there are still no job ads in the database display:-->
+                <article class="not-available-ads">
+                    <h1>No movies yet!</h1>
+                    <h2>Be the to add a movie!</h2>
+                </article>
+            {% else %}
+
+                <article class="gallery-container">
+                    {% for movie in movies %}
+                    <!--If there are art publications in the database, show each of them-->
+                    <article class="card-info">
+                        <div class="card-info-image">
+                            <img src="{{ movie.movie_poster.url }}" alt="">
+                        </div>
+                        <article class="card-info-text">
+                            <h1>Movie Title: {{ movie.name }}</h1>
+                        <div>
+                            {% if movie.tagged_actors %}
+                            <p>
+                                Starring:
+                            </p>
+                            {% for actor in movie.tagged_actors.all %}
+                                {{ actor.full_name }}
+                            {% endfor %}
+                            {% endif %}
+                            <br>
+                            <p>Description: {{ movie.description }}</p>
+                        </div>
+                            <a href="{% url 'movie details' slug=movie.slug %}" class="gallery-details-btn">Details</a>
+                        </article>
+                    </article>
+                {% endfor %}
+                </article>
+
+            {% endif %}
+        <div class="pagination">
+            <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
+        {% endif %}
+    </span>
+        </div>
+            <!--</section>-->
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <div id="box">
+        <!-- In case of error, you should display div with class "error-box" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--<div class="error-box">
+            <p>Error</p>
+        </div>-->
+        <main>
+            <section id="profile-page">
+                <h1>Profile Information</h1>
+                <article class="profile-card">
+
+                    <article class="profile-card-info">
+                        <h2>Username: {{ object.username }}</h2>
+                        {% if object.get_full_name %}
+                            <h3 class="names">Full name: {{ object.get_full_name }}</h3>
+                        {% endif %}
+
+                        <h3>Email: {{ object.email }}</h3>
+
+                        {% if object.gender %}
+                            <h3>Gender: {{ object.gender }}</h3>
+                        {% endif %}
+                        <h3>Total suggestions: {{ movie_count }}</h3>
+                        {% for movie in user_movies %}
+                            {{ movie.name }}
+                        {% endfor %}
+                        <div class="edit">
+                            {% if is_owner %}
+                                <a href="{% url 'edit user' pk=object.pk %}">
+                                    <img width="50" class="edit-img" src="{% static 'style/img/edit_profile.png' %}"
+                                         alt="edit button">
+                                </a>
+                                <a href="{% url 'delete user' pk=object.pk %}">
+                                    <img width="50" class="bin-img" src="{% static 'style/img/delete_profile.png' %}"
+                                         alt="bin button">
+                                </a>
+                            {% endif %}
+                        </div>
+                    </article>
+
+                    <article class="profile-card-icon">
+                        <!-- Do not forget to change the path to the image -->
+                        <img src="{% static 'style/img/profile_icon.png' %}" alt="art-image1">
+                    </article>
+
+                </article>
+            </section>
+        </main>
+    </div>
+{% endblock %}

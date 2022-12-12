@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load placeholders %}
+{% block page_content %}
+<div id="box">
+
+    <!-- In case of error, you should display div with class "error-box" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+    <!--<div class="error-box">
+        <p>Error</p>
+    </div>-->
+    <section id="create-container">
+        <div class="create-container-info">
+            <!-- Do not forget to change the path to the image -->
+            <img src="{% static 'style/img/add_movie.gif' %}" alt="image">
+
+            <form action="{% url 'movie add' %}" method="post" class="container-text" enctype="multipart/form-data">
+
+                <h2>Suggest a movie</h2>
+
+                {{ form.name|placeholder:'Movie Title:' }}
+                <label for="picture">Genre</label>
+                {{ form.genre|placeholder:'Genre:' }}
+                <br>
+                <label for="picture">Poster</label>
+                {{ form.movie_poster|placeholder:'Link to poster:' }}
+                <label for="picture">Tag actor</label>
+                {{ form.tagged_actors }}
+
+                {{ form.year_of_release|placeholder:'Year of Release:' }}
+
+                {{ form.description|placeholder:'Description:' }}
+                <button class="create-btn">Add movie</button>
+                {% csrf_token %}
+            </form>
+
+        </div>
+    </section>
+</div>
+{% endblock %}

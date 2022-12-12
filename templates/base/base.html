@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Starts Head Section -->
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style/css/style.css' %}">
+    <title>Watch This</title>
+</head>
+<!-- End Head Section -->
+
+<!-- Starts Body Section -->
+<body>
+
+<!-- Starts Header Section with Navigation Bar -->
+<header>
+    {% include 'base/partials/nav.html' %}
+</header>
+<!-- End Header Section with Navigation Bar -->
+
+
+<!-- Starts Main Section -->
+<main>
+    {% block page_content %}
+    {% endblock %}
+</main>
+
+<!-- End Main Section -->
+
+<!-- Start Footer Section -->
+        <footer>
+            © What to watch in 2022
+        </footer>
+
+<!-- End Footer Section -->
+
+</body>
+</html>

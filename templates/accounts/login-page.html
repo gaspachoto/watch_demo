@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <div id="box">
+
+        <!-- In case of error, you should display div with class "error-box" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        <!--<div class="error-box">
+            <p>Error</p>
+        </div>-->
+        <main>
+            <section id="login-container">
+
+                <div class="container">
+                    <!-- Do not forget to change the path to the image -->
+                    <img src="{% static 'style/img/how-to-make-popcorn.jpg' %}" alt="image">
+
+                    <form action="{% url 'login user' %}" method="post" class="container-text">
+                        <h2>Login</h2>
+                        <p>Welcome, check out the new suggestions!</p>
+                        {{ form }}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        <button class="login-btn">Login</button>
+                        {% csrf_token %}
+                        <div class="card-no-account">
+                            <p>Don't have an account? <a href="{% url 'register user' %}">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+{% endblock %}

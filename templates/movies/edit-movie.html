@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load placeholders %}
+{% block page_content %}
+<div id="box">
+
+    <!-- In case of error, you should display div with class "error-box" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+    <!--<div class="error-box">
+        <p>Error</p>
+    </div>-->
+        <section id="edit-container">
+            <div class="edit-container-info">
+                <!-- Do not forget to change the path to the image -->
+                <img src="{{movie.movie_poster.url}}" alt="image">
+
+                <form action="{% url 'movie edit' slug=movie.slug %}" method="post" class="container-text" enctype="multipart/form-data">
+
+                    <h2>Edit your movie</h2>
+                    <label for="title">Movie Title</label>
+                    {{ form.name }}
+                    <br>
+                    <label for="painting-tech">Genre</label>
+                    {{ form.genre }}
+                    <br>
+                    <label for="picture">Poster</label>
+                    {{ form.movie_poster }}
+                    <label for="picture">Released in</label>
+                    {{ form.year_of_release }}
+                    <label for="description">Description</label>
+                    {{ form.description }}
+                    <button class="create-btn">Edit</button>
+                    {% csrf_token %}
+                </form>
+
+            </div>
+        </section>
+</div>
+{% endblock %}

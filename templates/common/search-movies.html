@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+    <main>
+ 
+        <form class="search" action="{% url 'search movies' %}" method="GET" name="pattern" type="search">
+                {{ search_form }}
+                {% csrf_token %}
+            <button type="submit" class="btn-search">
+                <!-- Do not forget to change the path to the image -->
+                <img width="30" src="{% static "style/img/search_icon.png" %}" alt="search-icon">
+                Search
+            </button>
+        </form>
+
+        <section id="search-page">
+ 
+            <h2>Search result:</h2>
+            <!--If there are a search matches, show each ad-->
+            {% for movie in movies %}
+ 
+            <!--If there are a search matches, show each ad-->
+            <article class="search-page-result">
+                <p class="search-page-result-headline"> Movie name: {{ movie.movie_name }}</p>
+                <article class="details-page-card-buttons">
+                    <a href="{% url 'movie details' slug=movie.slug %}" class="btn-edit">Details</a>
+                </article>
+            </article>
+        {% endfor %}
+            <!--If not show:-->
+            <!--<article class="search-page-no-result">
+                <p class="search-page-no-result-message">No match found.</p>
+            </article>-->
+ 
+        </section>
+ 
+    </main>
+ 
+{% endblock %}
