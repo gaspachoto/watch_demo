@@ -32,9 +32,13 @@ class UserDetailsView(views.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user_movies'] = self.object.movie_set.all()
+        movies = self.object.movie_set.all()
+        user_movies = ', '.join(str(m.name) for m in movies)
+        context['user_movies'] = user_movies
         context['is_owner'] = self.request.user == self.object
-        context['movie_count'] = self.object.movie_set.count
+        context['movie_count'] = self.object.movie_set.count()
+        print(context['movie_count'])
+        print(len(list((context['user_movies']))))
 
         return context
 

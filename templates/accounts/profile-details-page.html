@@ -24,9 +24,10 @@
                             <h3>Gender: {{ object.gender }}</h3>
                         {% endif %}
                         <h3>Total suggestions: {{ movie_count }}</h3>
-                        {% for movie in user_movies %}
-                            {{ movie.name }}
-                        {% endfor %}
+                        {% if user_movies %}
+                            <h3>Suggested movies: {{ user_movies }}</h3>
+                        {% endif %}
+                        <br>
                         <div class="edit">
                             {% if is_owner %}
                                 <a href="{% url 'edit user' pk=object.pk %}">
