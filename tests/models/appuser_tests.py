@@ -10,11 +10,11 @@ class AppUserModelTests(TestCase):
     def test_profile_save__with_correct_values__expect_success(self):
         # Arrange
         profile = AppUser(
-            username='Doncho',
-            email='doncho@donchov.com',
+            username='Vladimir',
+            email='vlad@iliev.com',
             password='qwer1234ASDF',
-            first_name='Doncho',
-            last_name='Donchev',
+            first_name='Vladimir',
+            last_name='Iliev',
             gender='male',
         )
 
@@ -28,11 +28,11 @@ class AppUserModelTests(TestCase):
     def test_profile_save__with_incorrect_name__expect_exception(self):
         # Arrange
         profile = AppUser(
-            username='Doncho',
-            email='doncho@donchov.com',
+            username='Vladimir',
+            email='vlad@iliev.com',
             password='qwer1234ASDF',
-            first_name='Doncho3',
-            last_name='Donchev',
+            first_name='Vladimir3',
+            last_name='Iliev',
             gender='male',
         )
 

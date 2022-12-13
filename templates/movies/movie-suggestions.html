@@ -26,17 +26,19 @@
                         </div>
                         <article class="card-info-text">
                             <h1>Movie Title: {{ movie.name }}</h1>
+
                         <div>
-                            {% if movie.tagged_actors %}
-                            <p>
-                                Starring:
-                            </p>
+                            <p>Genre: {{ movie.genre }}</p>
+                            {% if movie.tagged_actors.all %}
+                                <p>Starring:</p>
                             {% for actor in movie.tagged_actors.all %}
                                 {{ actor.full_name }}
                             {% endfor %}
                             {% endif %}
                             <br>
                             <p>Description: {{ movie.description }}</p>
+                            <br>
+                            <p>Released in: {{ movie.year_of_release }}</p>
                         </div>
                             <a href="{% url 'movie details' slug=movie.slug %}" class="gallery-details-btn">Details</a>
                         </article>

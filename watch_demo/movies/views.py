@@ -41,9 +41,8 @@ class MovieListView(LoginRequiredMixin, ListView):
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
-    #
-    #     actors = ', '.join(str(full_name) for full_name in Movie.tagged_actors.all())
-    #     context[actors] = actors
+    #     # actors = ', '.join(str(full_name) for full_name in Movie.tagged_actors.all())
+    #     # context[actors] = actors
     #     return context
 
     def get_paginate_by(self, queryset):

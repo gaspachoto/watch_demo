@@ -17,19 +17,20 @@
             <form action="{% url 'movie add' %}" method="post" class="container-text" enctype="multipart/form-data">
 
                 <h2>Suggest a movie</h2>
-
                 {{ form.name|placeholder:'Movie Title:' }}
+                {{ form.name.errors }}
                 <label for="picture">Genre</label>
                 {{ form.genre|placeholder:'Genre:' }}
                 <br>
                 <label for="picture">Poster</label>
                 {{ form.movie_poster|placeholder:'Link to poster:' }}
+                {{ form.movie_poster.errors }}
                 <label for="picture">Tag actor</label>
                 {{ form.tagged_actors }}
-
                 {{ form.year_of_release|placeholder:'Year of Release:' }}
-
+                {{ form.year_of_release.errors }}
                 {{ form.description|placeholder:'Description:' }}
+                {{ form.description.errors }}
                 <button class="create-btn">Add movie</button>
                 {% csrf_token %}
             </form>

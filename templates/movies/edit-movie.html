@@ -19,16 +19,20 @@
                     <h2>Edit your movie</h2>
                     <label for="title">Movie Title</label>
                     {{ form.name }}
+                    {{ form.name.errors }}
                     <br>
                     <label for="painting-tech">Genre</label>
                     {{ form.genre }}
                     <br>
                     <label for="picture">Poster</label>
                     {{ form.movie_poster }}
+                    {{ form.movie_poster.errors }}
                     <label for="picture">Released in</label>
                     {{ form.year_of_release }}
+                    {{ form.year_of_release.errors }}
                     <label for="description">Description</label>
                     {{ form.description }}
+                    {{ form.description.errors }}
                     <button class="create-btn">Edit</button>
                     {% csrf_token %}
                 </form>
