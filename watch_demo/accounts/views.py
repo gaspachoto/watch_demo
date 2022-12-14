@@ -3,6 +3,7 @@ from django.views import generic as views
 from django.contrib.auth import views as auth_views, get_user_model, login
 from django.shortcuts import render
 from watch_demo.accounts.forms import UserCreateForm
+from watch_demo.movies.models import Movie
 
 UserModel = get_user_model()
 
@@ -34,11 +35,10 @@ class UserDetailsView(views.DetailView):
         context = super().get_context_data(**kwargs)
         movies = self.object.movie_set.all()
         user_movies = ', '.join(str(m.name) for m in movies)
+        context['movie_list'] = movies
         context['user_movies'] = user_movies
         context['is_owner'] = self.request.user == self.object
         context['movie_count'] = self.object.movie_set.count()
-        print(context['movie_count'])
-        print(len(list((context['user_movies']))))
 
         return context
 
@@ -60,6 +60,15 @@ class UserDeleteView(views.DeleteView):
     success_url = reverse_lazy('index')
 
 
+class UserMovieListView(views.ListView):
+    model = Movie
+    template_name = 'movies/movie-suggestions.html'
+    context_object_name = 'movies'
+    default_paginate_by = 4
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_owner'] = self.request.user.pk == self.object.user_id
 
 
 

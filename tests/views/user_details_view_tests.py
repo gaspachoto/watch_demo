@@ -57,8 +57,8 @@ class UserDetailsViewTests(TestCase):
         response = self.client.get(reverse_lazy('details user', kwargs={'pk': user.pk}))
 
         self.assertEqual(5, response.context['movie_count'])
-        self.assertEqual(5, len(response.context['user_movies']))
-        print(len(response.context['user_movies']))
+        self.assertEqual(5, len(response.context['movie_list']))
+
 
     def test_user_details__when_no_movies_expect_0_suggestions(self):
         user = self._create_user_and_login(self.VALID_USER_DATA)

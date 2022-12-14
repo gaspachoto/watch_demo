@@ -128,7 +128,3 @@ class Movie(StrFromFieldsMixin, models.Model):
             self.slug = slugify(f'{self.id}-{self.name}')
 
         return super().save(*args, **kwargs)
-
-
-
-

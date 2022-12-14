@@ -34,17 +34,18 @@ class MovieAddView(LoginRequiredMixin, CreateView):
 
 
 class MovieListView(LoginRequiredMixin, ListView):
-    model = Movie
     template_name = 'movies/movie-suggestions.html'
+    model = Movie
     context_object_name = 'movies'
     default_paginate_by = 4
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
-    #     actors = [actor for actor in Movie.tagged_actors.all]
+    #     movie = self.object
+    #     actors = [actor for actor in movie.tagged_actors.all]
     #     print(actors)
-    #     # actors = ', '.join(str(full_name) for full_name in Movie.tagged_actors.all())
-    #     # context[actors] = actors
+    #     actors = ', '.join(str(full_name) for full_name in Movie.tagged_actors.all())
+    # #     # context[actors] = actors
     #     return context
 
     def get_paginate_by(self, queryset):
@@ -60,7 +61,6 @@ class MovieDetailView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         movie = self.object
         movie_rating = calculate_rating(movie)
-        print(movie_rating)
         movie_rated = MovieRating.objects.filter(movie_id=movie.pk, user_id=self.request.user.pk)
         context['user_rated_movie'] = movie_rated
         context['rating'] = movie_rating
