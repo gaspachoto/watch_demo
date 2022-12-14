@@ -60,7 +60,7 @@ class UserDeleteView(views.DeleteView):
     success_url = reverse_lazy('index')
 
 
-class UserMovieListView(views.ListView):
+class UserMovieListView(views.ListView, views.DetailView):
     model = Movie
     template_name = 'movies/movie-suggestions.html'
     context_object_name = 'movies'
@@ -69,6 +69,3 @@ class UserMovieListView(views.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_owner'] = self.request.user.pk == self.object.user_id
-
-
-

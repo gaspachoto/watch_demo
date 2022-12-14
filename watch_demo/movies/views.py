@@ -42,7 +42,7 @@ class MovieListView(LoginRequiredMixin, ListView):
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
     #     movie = self.object
-    #     actors = [actor for actor in movie.tagged_actors.all]
+    #     actors = [actor for actor in movie.tagged_actors]
     #     print(actors)
     #     actors = ', '.join(str(full_name) for full_name in Movie.tagged_actors.all())
     # #     # context[actors] = actors
