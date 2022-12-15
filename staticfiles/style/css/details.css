@@ -22,7 +22,7 @@
     height: 360px;
     display: flex;
     margin-left: 1.5em;
-    background-color: #c47d04;
+    background-color: #f3cea4;
     margin-bottom: 1.5em;
 }
 
@@ -149,7 +149,7 @@
 }
 
 .btn-edit {
-    background-color: #428aa0;
+    background-color: #151595;
 }
 
 .btn-edit:hover {
@@ -157,7 +157,7 @@
 }
 
 .btn-delete {
-    background-color: #f15505;
+    background-color: #c71414;
 }
 
 .btn-delete:hover {

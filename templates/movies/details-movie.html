@@ -24,8 +24,8 @@
                             <h5 class="postTime">Comments for movie:</h5>
                             {% for comment in comments %}
                                 <li>{{ comment.user }}: {{ comment.text }}</li>
-
                             {% endfor %}
+                            <br>
                         {% endif %}
                         <form method="post" action="{% url 'comment movie' movie_id=movie.pk %}">
                             {{ comment_form }}

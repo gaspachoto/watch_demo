@@ -111,7 +111,7 @@ class Movie(StrFromFieldsMixin, models.Model):
 
     user = models.ForeignKey(
         UserModel,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
     )

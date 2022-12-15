@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import request
 from django.urls import reverse_lazy
 from django.views import generic as views
@@ -28,7 +29,7 @@ class SignOutView(auth_views.LogoutView):
     next_page = reverse_lazy('index')
 
 
-class UserDetailsView(views.DetailView):
+class UserDetailsView(LoginRequiredMixin, views.DetailView):
     model = UserModel
     template_name = 'accounts/profile-details-page.html'
 
@@ -44,7 +45,7 @@ class UserDetailsView(views.DetailView):
         return context
 
 
-class UserEditView(views.UpdateView):
+class UserEditView(LoginRequiredMixin, views.UpdateView):
     template_name = 'accounts/profile-edit-page.html'
     model = UserModel
     fields = ('first_name', 'last_name', 'email', 'gender')
@@ -55,13 +56,13 @@ class UserEditView(views.UpdateView):
         })
 
 
-class UserDeleteView(views.DeleteView):
+class UserDeleteView(LoginRequiredMixin, views.DeleteView):
     template_name = 'accounts/profile-delete-page.html'
     model = UserModel
     success_url = reverse_lazy('index')
 
 
-class UserMovieListView(views.ListView):
+class UserMovieListView(LoginRequiredMixin, views.ListView):
     model = Movie
     template_name = 'accounts/movies-user.html'
     # context_object_name = 'movies'
@@ -72,7 +73,6 @@ class UserMovieListView(views.ListView):
         user = self.request.user
         movies = Movie.objects.filter(user=user.pk)
         context['movies'] = movies
-        print(movies)
         return context
 
     # def get_paginate_by(self, queryset):

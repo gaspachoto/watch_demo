@@ -14,8 +14,8 @@ class MovieCommentForm(forms.ModelForm):
         widgets = {
             'text': forms.Textarea(
                 attrs={
-                    'cols': 30,
-                    'rows': 3,
+                    'cols': 35,
+                    'rows': 2,
                     'placeholder': 'Add comment...'
                 },
             ),
