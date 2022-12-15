@@ -1,3 +1,4 @@
+from django.http import request
 from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import views as auth_views, get_user_model, login
@@ -60,12 +61,19 @@ class UserDeleteView(views.DeleteView):
     success_url = reverse_lazy('index')
 
 
-class UserMovieListView(views.ListView, views.DetailView):
+class UserMovieListView(views.ListView):
     model = Movie
-    template_name = 'movies/movie-suggestions.html'
-    context_object_name = 'movies'
-    default_paginate_by = 4
+    template_name = 'accounts/movies-user.html'
+    # context_object_name = 'movies'
+    # default_paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['is_owner'] = self.request.user.pk == self.object.user_id
+        user = self.request.user
+        movies = Movie.objects.filter(user=user.pk)
+        context['movies'] = movies
+        print(movies)
+        return context
+
+    # def get_paginate_by(self, queryset):
+    #     return self.request.GET.get('page_size', self.default_paginate_by)

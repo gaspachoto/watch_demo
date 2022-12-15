@@ -14,8 +14,8 @@ class MovieCommentForm(forms.ModelForm):
         widgets = {
             'text': forms.Textarea(
                 attrs={
-                    'cols': 20,
-                    'rows': 5,
+                    'cols': 30,
+                    'rows': 3,
                     'placeholder': 'Add comment...'
                 },
             ),
@@ -28,8 +28,8 @@ class MovieRateForm(forms.ModelForm):
         fields = ('rating',)
 
 
-class SearchMoviesForm(forms.Form):
-    genre = forms.ChoiceField(
-        choices=Genre.choices(),
-        required=False,
-    )
+# class SearchMoviesForm(forms.Form):
+#     genre = forms.ChoiceField(
+#         choices=Genre.choices(),
+#         required=False,
+#     )

@@ -12,6 +12,7 @@ UserModel = get_user_model()
 class UserAdmin(auth_admin.UserAdmin):
     form = UserEditForm
     add_form = UserCreateForm
+    ordering = ('username',)
 
     fieldsets = (
         (None, {'fields': (

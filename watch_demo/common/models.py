@@ -25,7 +25,7 @@ class MovieComment(models.Model):
 
     movie = models.ForeignKey(
         Movie,
-        on_delete=models.RESTRICT,
+        on_delete=models.CASCADE,
         null=False,
         blank=True,
     )
@@ -46,7 +46,9 @@ class MovieRating(models.Model):
     )
     user = models.ForeignKey(
         UserModel,
-        on_delete=models.RESTRICT,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
     )
 
     rating = models.IntegerField(

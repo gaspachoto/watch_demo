@@ -11,7 +11,7 @@
         <li><a href="{% url 'movie suggestions' %}">Suggested movies</a></li>
         <li><a href="{% url 'details user' pk=request.user.pk %}">Profile</a></li>
         <li><a href="{% url 'logout user' %}">Log out</a></li>
-        <li><a href="{% url 'search movies' %}">Search</a></li>
+{#        <li><a href="{% url 'search movies' %}">Search</a></li>#}
         {% else %}
         <li><a href="{% url 'login user' %}">Log in</a></li>
         <li><a href="{% url 'register user' %}">Register</a></li>

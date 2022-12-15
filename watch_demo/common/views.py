@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
-from watch_demo.common.forms import MovieCommentForm, MovieRateForm, SearchMoviesForm
+from watch_demo.common.forms import MovieCommentForm, MovieRateForm
 from watch_demo.common.models import MovieRating
 from watch_demo.movies.models import Movie
 
@@ -43,31 +43,31 @@ def rate_movie(request, movie_id):
     # MovieRating.objects.create(movie_id=movie_id, user_id=request.user.pk,)
 
 
-class MoviesSearchListView(LoginRequiredMixin, ListView):
-    model = Movie
-    context_object_name = 'movies'
-    template_name = 'common/search-movies.html'
-    search_form = SearchMoviesForm
+# class MoviesSearchListView(LoginRequiredMixin, ListView):
+#     model = Movie
+#     context_object_name = 'movies'
+#     template_name = 'common/search-movies.html'
+#     search_form = SearchMoviesForm
+#
+#     def get_context_data(self, *args, **kwargs):
+#         context = super().get_context_data(*args, **kwargs)
+#         context['pattern'] = self.__get_pattern()
+#         context['search_form'] = self.search_form
+#         return context
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['pattern'] = self.__get_pattern()
-        context['search_form'] = self.search_form
-        return context
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     pattern = self.__get_pattern()
+    #
+    #     if pattern:
+    #         queryset = queryset.filter(movie_genre__icontains=pattern)
+    #         print(queryset)
+    #         # queryset = queryset1 | queryset2
+    #     return queryset
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        pattern = self.__get_pattern()
-
-        if pattern:
-            queryset = queryset.filter(movie_genre__icontains=pattern)
-            print(queryset)
-            # queryset = queryset1 | queryset2
-        return queryset
-
-    def __get_pattern(self):
-        pattern = self.request.GET.get('pattern', None)
-        return pattern.lower() if pattern else None
+    # def __get_pattern(self):
+    #     pattern = self.request.GET.get('pattern', None)
+    #     return pattern.lower() if pattern else None
 
 
 

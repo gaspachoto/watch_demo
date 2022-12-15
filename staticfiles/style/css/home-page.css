@@ -1,10 +1,10 @@
 #home-page {
-    background-image: url(../img/The_Witcher_posteredit.png);
-    background-position: 50% 60%;
+    background-image: url(../img/The_Witcher_poster.png);
+    background-position: 10% 20%;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: local;
-    height: 500px;
+    height: 643px;
 }
 
 .auto-content {

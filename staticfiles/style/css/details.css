@@ -22,17 +22,17 @@
     height: 360px;
     display: flex;
     margin-left: 1.5em;
-    background-color: #c66e40;
+    background-color: #c47d04;
     margin-bottom: 1.5em;
 }
 
 .details-card-image>img {
-    width: 390px;
+    width: 333px;
     height: 360px;
 }
 
 .details-card-text {
-    width: 290px;
+    width: 347px;
     position: relative;
     height: auto;
 }
@@ -55,7 +55,7 @@
     margin-top: 1em;
     margin-bottom: 0.5em;
     font-family: 'EB Garamond', serif;
-    color: white;
+    color: black;
 }
 
 .details-card-text>h3 {
