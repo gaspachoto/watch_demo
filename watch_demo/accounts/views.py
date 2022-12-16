@@ -13,11 +13,14 @@ UserModel = get_user_model()
 class SignInView(auth_views.LoginView):
     template_name = 'accounts/login-page.html'
 
+    def get_success_url(self):
+        return reverse_lazy('movie suggestions')
+
 
 class SignUpView(views.CreateView):
     template_name = 'accounts/register-page.html'
     form_class = UserCreateForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('movie suggestions')
 
     def form_valid(self, form):
         result = super().form_valid(form)

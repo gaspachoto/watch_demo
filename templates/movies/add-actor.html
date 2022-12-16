@@ -19,8 +19,10 @@
                 <h2>Add actor</h2>
                 <label for="picture">First name</label>
                 {{ form.first_name|placeholder:'First name:' }}
+                {{ form.first_name.errors }}
                 <label for="picture">Last name</label>
                 {{ form.last_name|placeholder:'Last name:' }}
+                {{ form.last_name.errors }}
                 <button class="create-btn">Add actor</button>
                 {% csrf_token %}
             </form>

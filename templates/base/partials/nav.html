@@ -6,15 +6,14 @@
 
     <ul class="menu">
         {% if request.user.is_authenticated %}
-        <li><a href="{% url 'movie add' %}">Suggest movie</a></li>
-        <li><a href="{% url 'actor add' %}">Add actor</a></li>
-        <li><a href="{% url 'movie suggestions' %}">Suggested movies</a></li>
-        <li><a href="{% url 'details user' pk=request.user.pk %}">Profile</a></li>
-        <li><a href="{% url 'logout user' %}">Log out</a></li>
-{#        <li><a href="{% url 'search movies' %}">Search</a></li>#}
+            <li><a href="{% url 'movie suggestions' %}">Suggested movies</a></li>
+            <li><a href="{% url 'movie add' %}">Suggest a movie</a></li>
+            <li><a href="{% url 'actor add' %}">Add an actor</a></li>
+            <li><a href="{% url 'details user' pk=request.user.pk %}">Profile</a></li>
+            <li><a href="{% url 'logout user' %}">Log out</a></li>
         {% else %}
-        <li><a href="{% url 'login user' %}">Log in</a></li>
-        <li><a href="{% url 'register user' %}">Register</a></li>
+            <li><a href="{% url 'login user' %}">Log in</a></li>
+            <li><a href="{% url 'register user' %}">Register</a></li>
         {% endif %}
     </ul>
 </nav>

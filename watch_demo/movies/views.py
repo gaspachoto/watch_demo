@@ -20,7 +20,7 @@ class MovieAddView(LoginRequiredMixin, CreateView):
     model = Movie
     template_name = 'movies/add-movie.html'
     form_class = MovieAddForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('movie suggestions')
 
     def form_valid(self, form):
         form.instance.user = self.request.user

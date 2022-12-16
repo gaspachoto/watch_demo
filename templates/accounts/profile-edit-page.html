@@ -16,32 +16,21 @@
                     <form action="{% url 'edit user' pk=object.pk %}" method="post" class="container-text">
                         <h2>Edit</h2>
                         <p>Edit your profile!</p>
+                        <label for="painting-tech">First name</label>
+                        {{ form.first_name }}
+                        {{ form.first_name.errors }}
+                        <br>
+                        <label for="painting-tech">Last name</label>
+                        {{ form.last_name }}
+                        {{ form.last_name.errors }}
+                        <br>
+                        <label for="picture">Email</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                        <label for="picture">Gender</label>
+                        {{ form.gender }}
 
-                        {% for field in form %}
-                            <p class="error"> {{ field.errors }} </p>
-                            <div class="label-input">
-                                <label>{{ field.label }}</label>
-                                {% if not field.label == "Gender:" %}
-                                    {{ field }}
-                                {% else %}
-                                    <div class="list-choice">
-                                        <div class="list-choice-title">Gender</div>
-                                        <div class="list-choice-objects">
-                                            {% for type, value in form.fields.gender.choices %}
-                                                <label>
-                                                    <input type="radio" value="{{ value }}" name="gender"
-                                                            {% if form.gender.value == value %}
-                                                           checked
-                                                            {% endif %}/>
-                                                    <span>{{ value }}</span>
-                                                </label>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-                        <button class="edit-btn">Edit</button>
+                        <button class="create-btn">Edit</button>
                         {% csrf_token %}
                     </form>
                 </div>
