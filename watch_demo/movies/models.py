@@ -56,7 +56,7 @@ class Actor(StrFromFieldsMixin, models.Model):
 
 
 class Movie(StrFromFieldsMixin, models.Model):
-    MAX_NAME = 30
+    MAX_NAME = 40
     MIN_NAME = 3
     MAX_DESCRIPTION_LENGTH = 300
     MIN_DESCRIPTION_LENGTH = 15
@@ -128,3 +128,6 @@ class Movie(StrFromFieldsMixin, models.Model):
             self.slug = slugify(f'{self.id}-{self.name}')
 
         return super().save(*args, **kwargs)
+
+    class Meta:
+        ordering = ('-year_of_release',)

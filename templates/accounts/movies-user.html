@@ -11,7 +11,7 @@
                 {% if not movies %}
                     <h1 style="color:white">No movies yet?</h1>
                     <br>
-                    <h1 style="color:white">Suggest your favorite movies to other.</h1>
+                    <h1 style="color:white">Suggest your favorite movies to others.</h1>
                 {% else %}
                 <h1 style="color:white">My movies</h1>
                 <article class="gallery-container">
@@ -26,16 +26,16 @@
                         <div>
                             <p>Genre: {{ movie.genre }}</p>
                             {% if movie.tagged_actors.all %}
-                                <p>Starring:</p>
+                                <p>Starring:
                             {% for actor in movie.tagged_actors.all %}
                                 {{ actor.full_name }}
                             {% endfor %}
+                                </p>
                             {% endif %}
                             <br>
                             <p>Description: {{ movie.description }}</p>
                             <br>
                             <p>Released in: {{ movie.year_of_release }}</p>
-{#                            <a href="{% url 'details user' pk=movie.user.pk %}" class="button">Suggested by: {{ movie.user.name }}</a>#}
                         </div>
                             <a href="{% url 'movie details' slug=movie.slug %}" class="gallery-details-btn">Details</a>
                         </article>

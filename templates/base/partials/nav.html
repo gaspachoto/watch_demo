@@ -5,7 +5,7 @@
 
     <ul class="menu">
         {% if request.user.is_authenticated %}
-            <li><a href="{% url 'movie suggestions' %}">Suggested movies</a></li>
+            <li><a href="{% url 'movie suggestions' %}">Movie collection</a></li>
             <li><a href="{% url 'movie add' %}">Suggest a movie</a></li>
             <li><a href="{% url 'actor add' %}">Add an actor</a></li>
             <li><a href="{% url 'details user' pk=request.user.pk %}">Profile</a></li>

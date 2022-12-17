@@ -37,10 +37,12 @@ class MovieListView(LoginRequiredMixin, ListView):
     template_name = 'movies/movie-suggestions.html'
     model = Movie
     context_object_name = 'movies'
-    default_paginate_by = 4
+    default_paginate_by = 6
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
+    #     movies_by_year = Movie.objects.all().order_by('-year_of_release')
+    #     context['movies_by_year'] = movies_by_year
 
     #     movie = self.object
     #     actors = [actor for actor in movie.tagged_actors]

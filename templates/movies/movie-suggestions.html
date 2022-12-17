@@ -27,10 +27,11 @@
                         <div>
                             <p>Genre: {{ movie.genre }}</p>
                             {% if movie.tagged_actors.all %}
-                                <p>Starring:</p>
+                                <p>Starring:
                             {% for actor in movie.tagged_actors.all %}
                                 {{ actor.full_name }}
                             {% endfor %}
+                                </p>
                             {% endif %}
                             <br>
                             <p>Description: {{ movie.description }}</p>
