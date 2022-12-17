@@ -7,7 +7,7 @@
 
 .create-container-info,
 .edit-container-info {
-    background-color: #fff;
+    background-color: #f3cea4;
     width: 600px;
     height: 500px;
     position: relative;
@@ -22,7 +22,7 @@
 .create-container-info>img,
 .edit-container-info>img {
     width: 250px;
-    height: 460px;
+    height: 370px;
     object-fit: cover;
     object-position: center;
 }

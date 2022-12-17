@@ -3,20 +3,11 @@
 {% load placeholders %}
 {% block page_content %}
 <div id="box">
-
-    <!-- In case of error, you should display div with class "error-box" -->
-    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-    <!--<div class="error-box">
-        <p>Error</p>
-    </div>-->
     <section id="create-container">
         <div class="create-container-info">
-            <!-- Do not forget to change the path to the image -->
             <img src="{% static 'style/img/add_movie.gif' %}" alt="image">
-
             <form action="{% url 'actor add' %}" method="post" class="container-text">
-
-                <h2>Add actor</h2>
+                <h2>Add an actor</h2>
                 <label for="picture">First name</label>
                 {{ form.first_name|placeholder:'First name:' }}
                 {{ form.first_name.errors }}
@@ -26,7 +17,6 @@
                 <button class="create-btn">Add actor</button>
                 {% csrf_token %}
             </form>
-
         </div>
     </section>
 </div>

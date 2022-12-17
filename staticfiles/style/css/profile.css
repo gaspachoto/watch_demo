@@ -96,9 +96,10 @@
 }
 
 .buttons {
-    margin-top: 5em;
+    margin-top: 3em;
     position: relative;
     text-align: center;
+    display: block;
 }
 
 .buttons>p {

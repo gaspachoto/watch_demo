@@ -3,19 +3,10 @@
 {% load placeholders %}
 {% block page_content %}
 <div id="box">
-
-    <!-- In case of error, you should display div with class "error-box" -->
-    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-    <!--<div class="error-box">
-        <p>Error</p>
-    </div>-->
     <section id="create-container">
         <div class="create-container-info">
-            <!-- Do not forget to change the path to the image -->
             <img src="{% static 'style/img/add_movie.gif' %}" alt="image">
-
             <form action="{% url 'movie add' %}" method="post" class="container-text" enctype="multipart/form-data">
-
                 <h2>Suggest a movie</h2>
                 {{ form.name|placeholder:'Movie Title:' }}
                 {{ form.name.errors }}
@@ -31,10 +22,9 @@
                 {{ form.year_of_release.errors }}
                 {{ form.description|placeholder:'Description:' }}
                 {{ form.description.errors }}
-                <button class="create-btn">Add movie</button>
+                <button class="create-btn">Suggest movie</button>
                 {% csrf_token %}
             </form>
-
         </div>
     </section>
 </div>

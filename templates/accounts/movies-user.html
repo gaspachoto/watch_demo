@@ -4,22 +4,16 @@
 {% block page_content %}
 
     <div id="box">
-
-        <!-- In case of error, you should display div with class "error-box" -->
-        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        <!--<div class="error-box">
-            <p>Error</p>
-        </div>-->
             <section id="gallery">
+
+                <br>
+                <br>
+                {% if not movies %}
+                    <h1 style="color:white">No movies yet?</h1>
+                    <br>
+                    <h1 style="color:white">Suggest your favorite movies to other.</h1>
+                {% else %}
                 <h1 style="color:white">My movies</h1>
-
-            {% if not movies %}
-                <article class="not-available-ads">
-                    <h1>No movies yet!</h1>
-                    <h2>Be the to add a movie!</h2>
-                </article>
-            {% else %}
-
                 <article class="gallery-container">
                     {% for movie in movies %}
                     <article class="card-info">

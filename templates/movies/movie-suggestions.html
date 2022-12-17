@@ -4,21 +4,18 @@
 {% block page_content %}
 
     <div id="box">
-
-        <!-- In case of error, you should display div with class "error-box" -->
-        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        <!--<div class="error-box">
-            <p>Error</p>
-        </div>-->
         <section id="gallery">
-                <h1 style="color:white">Movie suggestions</h1>
-            {% if not movies %}
-                <article class="not-available-ads">
-                    <h1>No movies yet!</h1>
-                    <h2>Be the to add a movie!</h2>
-                </article>
-            {% else %}
 
+            <br>
+            <br>
+            {% if not movies %}
+
+                <h1 style="color:white">No movies yet?</h1>
+                <br>
+                <h1 style="color:white">Suggest your favorite movies to other.</h1>
+
+            {% else %}
+                <h1 style="color:white">Movie suggestions</h1>
                 <article class="gallery-container">
                     {% for movie in movies %}
                     <article class="card-info">
@@ -27,7 +24,6 @@
                         </div>
                         <article class="card-info-text">
                             <h1>Movie Title: {{ movie.name }}</h1>
-
                         <div>
                             <p>Genre: {{ movie.genre }}</p>
                             {% if movie.tagged_actors.all %}
@@ -55,9 +51,7 @@
             <a href="?page=1">first</a>
             <a href="?page={{ page_obj.previous_page_number }}">previous</a>
         {% endif %}
-
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">next</a>
             <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
