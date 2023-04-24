@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: local;
-    height: 643px;
+    height: 100vh;
 }
 
 .auto-content {
@@ -14,9 +14,9 @@
 }
 
 .auto-content>h1 {
-    font-size: 49.5px;
+    font-size: 54.5px;
     margin-top: 3.4em;
-    margin-left: 2em;
+    margin-left: 1.9em;
     font-family: 'Papyrus', fantasy;
 }
 
